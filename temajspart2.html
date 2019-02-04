@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <script type="text/javascript">
+
+      /**
+    1.O functie care primeste un sir de caractere
+    si returneaza cifrele din sirul respectiv
+    */
+
+    function digitsFromAString(str) {
+      str = str.split("");
+      var arr = [];
+
+      for (var i = 0; i < str.length; i++) {
+        if (!isNaN(str[i]) && str[i] !== " ") {
+          arr.push(str[i]);
+        }
+      }
+      return arr;
+    }
+
+    console.log(digitsFromAString("Am primit 5 pisici, 2 caini si 6 pesti."));
+
+    /**
+    2.O functie care primeste un sir de caractere
+    si returneaza doar literele din sirul respectiv
+    */
+    function lettersFromAString(str) {
+      str = str.split("");
+      var arr = [];
+
+      for (var i = 0; i < str.length; i++) {
+        if (isNaN(str[i]) &&
+          str[i] !== " " &&
+          str[i] !== "," &&
+          str[i] !== "." &&
+          str[i] !== "?" &&
+          str[i] !== "!") {
+          arr.push(str[i]);
+        }
+      }
+      return arr;
+    };
+
+    console.log(lettersFromAString("Am primit 5 pisici."));
+
+    /**
+    3.O functie care primeste un sir de caractere
+    si returneaza primele 5 litere(daca exista)
+    */
+
+    function first5Letters(str) {
+      str = str.split("");
+      var newStr = "";
+
+      for (var i = 0; i < str.length; i++) {
+        if (isNaN(str[i]) &&
+          str[i] !== " " &&
+          str[i] !== "," &&
+          str[i] !== "." &&
+          str[i] !== "?" &&
+          str[i] !== "!") {
+          newStr += str[i] ;
+          if (newStr.length == 5) {
+            break;
+          }
+        }
+      }
+      return newStr;
+    };
+
+    console.log(first5Letters("Ana1 are mere."))
+
+    /**
+    4.O functie care primeste o lista de siruri de caractere
+    si returneaza sirurile concatenate
+    */
+
+    function concatenate(arr) {
+      var str = "";
+      for (var i = 0; i < arr.length; i++) {
+        str += arr[i] + " ";
+      }
+      return str;
+    };
+
+    console.log(concatenate(["Ana", "are", "mere"]));
+
+    /**
+    5.O functie care primeste o lista de siruri de caractere
+    si returneaza cifrele din toate sirurile
+    */
+
+    function digitsFromAnArray(arr) {
+      var newArray = [];
+
+      for (var i = 0; i < arr.length; i++) {
+
+        arr[i].split("")
+        var str = "";
+        str += arr[i].split("");
+
+        for (var j = 0; j < str.length; j++) {
+          if (!isNaN(str[j]) && str[j] !== " ") {
+            newArray.push(str[j]);
+          }
+        }
+      }
+      return newArray;
+    };
+
+    console.log(digitsFromAnArray(["Ana are 5 mere.", "Bella are 6 pere", "Maria are 9 cartofi."]));
+
+
+    /**
+    6.O functie care primeste o lista de siruri de caractere
+    si returneaza lista de siruri de caractere inversate
+    */
+
+    function reverseStrings(arr) {
+      var newArray =[];
+
+      for (var i = 0; i < arr.length; i++) {
+        var str = arr[i].split("");
+        var newStr = "";
+        for (var j = str.length - 1; j >= 0; j--) {
+          newStr = newStr + str[j];
+        }
+        newArray.push(newStr);
+      }
+      return newArray;
+    };
+    console.log(reverseStrings(["Ana", "Bella", "Maria"]));
+
+    /**
+    7.Calculeaza factorialul unui numar
+    */
+    //varianta 1
+
+    function factorial(nr) {
+      var result = 1;
+
+      for(var i = 1; i <= nr; i++) {
+        result *=i;
+      }
+      return result;
+    }
+
+    console.log(factorial(5));
+
+    //varianta 2
+
+    var factorial2 = function(number) {
+      if (number <= 0) {
+        return 1;
+      } else {
+        return (number * factorial2(number - 1));
+      }
+    };
+    console.log(factorial2(6));
+
+    /**
+    8.Calculeaza cel mai mare divizor comun al 2 numere
+    */
+
+    function greatestCommonDivisor(a,b) {
+      var divisors = [];
+
+      for(var i = 1; i< b; i++ ) {
+        if(a % i === 0 && b % i ===0) {
+          divisors.push(i);
+        }
+      }
+      return divisors[divisors.length-1];
+    };
+
+    console.log(greatestCommonDivisor(20,48));
+
+    /**
+    9.Calculeaza cel mai mic multiplu comun al 2 numere
+    */
+
+    function leastCommonMultiple(a, b) {
+      if ((typeof a !== 'number') || (typeof b !== 'number')) {
+        return false;
+      } else {
+        return (!a || !b) ? 0 : Math.abs((a * b) / greatestCommonDivisor(a, b));
+      }
+    };
+
+    console.log(leastCommonMultiple(10,15));
+
+    /**
+    10.Returneaza un array care sa contina toti divizorii unui numar
+    */
+
+    function allDivisors(nr) {
+      var divisors = [];
+
+      for(var i = 2; i < nr; i++) {
+        if(nr % i === 0) {
+          divisors.push(i);
+        }
+      }
+      return divisors;
+    };
+
+    console.log(allDivisors(48));
+
+    /**
+    11.O functie care verifica daca un numar este palindrom (ex: 121, 1234321)
+    */
+
+    function palindrom(nr) {
+      nr = "" + nr;
+
+      for(var i = 0; i < nr.length/2; i++ ) {
+        if(nr[i] !== nr[nr.length-1-i]) {
+          return false;
+        }
+      }
+      return true;
+    };
+
+    console.log(palindrom(123321));
+
+    /**
+    12.O functie care sorteaza numerele pare dintr-un sir de numere primit ca parametru.
+    */
+
+    function evenNumbers(nr) {
+      var evenNrs = [];
+      nr = nr.split(",")
+
+      for(var i = 0; i < nr.length; i++) {
+        if(nr[i] % 2 === 0) {
+          evenNrs.push(nr[i]);
+        }
+      }
+       evenNrs.sort(
+        function(a,b) {
+        return a-b;
+      })
+      return evenNrs;
+    };
+
+    console.log(evenNumbers("5,7,6,72,34,98,12,67,8"));
+
+    /**
+    13.O functie care primeste ca parametru un array de numere.
+    Aceasta sorteaza ascendent numerele pare si descendent numerele impare,
+    in cadrul aceluiasi array primit ca parameru.
+    */
+
+    function evenOddSort(arr) {
+      var evenNumbers = [];
+      var oddNumbers = [];
+
+      for(var i = 0; i < arr.length; i++) {
+        if(arr[i] % 2 === 0) {
+          evenNumbers.push(arr[i]);
+          evenNumbers.sort(
+            function(a,b) {
+              return a-b;
+            }
+          )
+        } else {
+          oddNumbers.push(arr[i]);
+          oddNumbers.sort(
+            function(a,b) {
+              return b-a;
+            }
+          )
+        }
+      }
+      return evenNumbers.concat(oddNumbers);
+    };
+
+    console.log(evenOddSort([23,44,2,72,86,53,15,18,43,19,21]));
+
+    /**
+    14.O functie care primeste 2 parametri(un array si un numar).
+    Folosind binary search verificati daca numarul primit ca parametru se gaseste in array.
+    */
+
+    function binarySearch(arr, value) {
+      var first = 0;
+      var last = arr.length - 1;
+      var middle = Math.floor((first + last)/2);
+
+      while ( first <= last) {
+        if (arr[middle] == value) {
+          return true;
+        } else if (arr[middle] > value) {
+          last = middle - 1;
+        } else {
+          first = middle + 1;
+        }
+        middle = Math.floor((first + last)/2);
+      }
+      return false;
+    };
+    console.log(binarySearch([1,3,5,7,9,10,24,45],24));
+
+    /**
+    15.O functie care implementeaza binary search pentru a verifica
+    daca un numar se regaseste intr-un array.
+    Dupa ce se termina executia functiei
+    trebuie sa puteti afisa de cate ori s-a apelat functia recursiv.
+    */
+
+    function count(arr, value) {
+      var first = 0;
+      var last = arr.length - 1;
+      var middle = Math.floor((first + last)/2);
+      var count = 1;
+
+      while ( first <= last) {
+        if (arr[middle] == value) {
+          return count;
+        } else if (arr[middle] > value) {
+          last = middle - 1;
+        } else {
+          first = middle + 1;
+        }
+        middle = Math.floor((first + last)/2);
+        count += 1;
+      }
+    };
+
+    console.log(count([1,3,5,7,9,10,24,45],10));
+
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
