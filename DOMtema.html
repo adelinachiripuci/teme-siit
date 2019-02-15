@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <script type="text/javascript">
+    function compare(a, b) {
+      a = document.getElementById("firstname").value;
+      b = document.getElementById("name").value;
+      if (a === b) {
+        return document.querySelector("#firstname").classList.add("green") +
+        document.querySelector("#name").classList.add("green");
+      } else {
+        return document.querySelector("#firstname").classList.remove("green") +
+        document.querySelector("#name").classList.remove("green");
+      }
+    };
+
+    function compareAgain(a, b) {
+      a = document.getElementById("nr1").value;
+      b = document.getElementById("nr2").value;
+
+      if ((Number(a)) < (Number(b))) {
+        return document.querySelector("#nr2").classList.add("green")+
+        document.querySelector("#nr1").classList.remove("green");
+      } else if ((Number(a)) === (Number(b))) {
+        return document.querySelector("#nr1").classList.add("green") +
+        document.querySelector("#nr2").classList.add("green");
+      } else {
+        return document.querySelector("#nr1").classList.add("green")+
+        document.querySelector("#nr2").classList.remove("green");
+      }
+    };
+
+    function returnMax(a, b) {
+
+      a = document.getElementById("nr11").value;
+      b = document.getElementById("nr22").value;
+      var c = document.getElementById("biggest");
+
+      if ((Number(a)) > (Number(b))) {
+        return c.value = a;
+      } else {
+        return c.value = b;
+      }
+    };
+
+    function sumOfTwoNumbers(a,b) {
+      a = document.getElementById("firstname1").value;
+      b = document.getElementById("name1").value;
+      var c = document.getElementById("fullname");
+
+      c.value = a + " " + b;
+    };
+
+    function count(a) {
+      a = document.querySelector("#word").value;
+      document.getElementById("length").innerHTML = a.length;
+      document.getElementById("word").value= "";
+    };
+
+    function stopUser(elem,event) {
+      var a = document.getElementById("word1").value;
+
+      if(a.length > 10) {
+        event.preventDefault();
+        document.querySelector(".hidden").classList.remove("hidden");
+        document.querySelector("#word1").style.borderColor = "red";
+      }
+    };
+
+    function stopUser1(elem, event) {
+
+      if(event.key < "0" || event.key > "9" ) {
+        event.preventDefault();
+        document.querySelector(".hidden1").classList.remove("hidden1");
+        document.querySelector("#digits").style.borderColor = "red";
+      }
+    };
+
+    function change(img) {
+      var blankImg = "http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg";
+      var xImg = "http://www.drodd.com/images14/x12.jpg";
+
+      if(img.getAttribute("src") === blankImg) {
+        img.setAttribute("src", xImg)
+      }
+    };
+
+    function changeAgain(img) {
+      var blankImg = "http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg";
+      var xImg = "http://www.drodd.com/images14/x12.jpg";
+
+      if(img.getAttribute("src") === xImg) {
+        img.setAttribute("src", blankImg)
+      }
+    };
+  </script>
+  <style media="screen">
+  html {
+    color:#b2b2b2;
+  }
+
+  body {
+    text-align:center;
+    font-family: 'Lobster', cursive;
+    color: #7a1673;
+  }
+
+  form {
+    width:55%;
+    margin-left:auto;
+    margin-right: auto;
+    background-color: #cfc2d3;
+  }
+
+  form>input {
+    width:30%;
+    margin-left:auto;
+    margin-right: auto;
+  }
+
+  fieldset {
+    border-color: #7a1673;
+    border-radius: 10px;
+  }
+
+  label {
+    display:block;
+  }
+
+  input {
+    display: inline-block;
+    outline:none;
+    margin: 10px;
+  }
+
+  input:hover{
+    background-color: #d9d2db;
+  }
+
+  #variante {
+    display:flex;
+    justify-content:space-evenly;
+    margin-top: 20px;
+  }
+
+  #dogs {
+    display:inline;
+  }
+
+  #dogs>input {
+    margin:10px;
+  }
+
+  #submit {
+    margin-top: 20px;
+  }
+
+  .green {
+    border-color:green;
+  }
+
+  button {
+    height:20px;
+    display: block;
+    margin: auto;
+  }
+
+  #showLength {
+    text-align: right;
+  }
+
+  .hidden {
+    display:none;
+  }
+
+  .hidden1 {
+    display:none;
+  }
+
+  img {
+    width:100px;
+    height:100px;
+  }
+
+  table {
+    margin-top: 20px;
+    margin-left:auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border: 4px solid #7a1673;
+  }
+
+  td {
+  border: 4px solid #7a1673;
+  }
+
+  </style>
+</head>
+<body>
+  <form >
+   <fieldset>
+     <legend>Exercitiu 1</legend>
+     <div>
+       <label for="firstname">First name</label>
+       <input type="text" name="firstname" placeholder="type your first-name" id="firstname">
+       <label for="name">Second Name</label>
+       <input type="text" name="name" placeholder="type your second-name" id="name" >
+       <button type="button" name="button" onclick="compare()" >check</button>
+     </div>
+   </fieldset>
+  </form>
+  <form >
+   <fieldset>
+     <legend>Exercitiu 2</legend>
+     <div>
+       <label for="nr1">nr 1</label>
+       <input type="text" name="nr1" placeholder="type a number" id="nr1">
+       <label for="nr2">nr 2</label>
+       <input type="text" name="nr2" placeholder="type a number" id="nr2" >
+       <button type="button" name="button" onclick="compareAgain()" >check</button>
+     </div>
+   </fieldset>
+  </form>
+  <form>
+   <fieldset>
+     <legend>Exercitiu 3</legend>
+     <div>
+       <label for="nr11">nr 1</label>
+       <input type="text" name="nr11" placeholder="type a number" id="nr11">
+       <label for="nr22">nr 2</label>
+       <input type="text" name="nr22" placeholder="type a number" id="nr22" >
+       <label for="biggest">Biggest number</label>
+       <input type="text" name="age" placeholder="and the biggest number is..." id="biggest">
+       <button type="button" name="button" onclick="returnMax()" >check</button>
+     </div>
+   </fieldset>
+  </form>
+  <form >
+   <fieldset>
+     <legend>Exercitiu 4</legend>
+     <div>
+       <label for="firstname1">First name</label>
+       <input type="text" name="firstname1" placeholder="type your first-name" id="firstname1">
+       <label for="name1">Second Name</label>
+       <input type="text" name="name1" placeholder="type your second-name" id="name1" >
+       <label for="fullname1">Full Name</label>
+       <input type="text" name="fullname" placeholder="full name" id="fullname">
+       <button type="button" name="button" onclick="sumOfTwoNumbers()" >check</button>
+     </div>
+   </fieldset>
+  </form>
+  <form >
+   <fieldset>
+     <legend>Exercitiu 5</legend>
+     <div>
+       <label for="word">Word</label>
+       <input type="text" name="word" placeholder="type anything you what" id="word">
+       <button type="button" name="button" onclick="count()" >check</button>
+       <div id="showLength">The word has <span id="length" >......</span> letters</div>
+     </div>
+   </fieldset>
+  </form>
+  <form >
+   <fieldset>
+     <legend>Exercitiu 6</legend>
+     <div>
+       <label for="word1">Word</label>
+       <input type="text" name="word" placeholder="type anything you what" id="word1" onkeypress="stopUser(this,event)">
+       <div class="hidden">You can't type more than 10 characters</div>
+     </div>
+   </fieldset>
+  </form>
+  <form >
+   <fieldset>
+     <legend>Exercitiu 7</legend>
+     <div>
+       <label for="digits">Digits</label>
+       <input type="text" name="digits" placeholder="type only digits" id="digits" onkeypress="stopUser1(this,event)">
+       <div class="hidden1">You can't type nothing but digits.</div>
+     </div>
+   </fieldset>
+  </form>
+  <table border="1">
+    <tr>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+    </tr>
+    <tr>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+    </tr>
+    <tr>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+      <td><img src="http://static.wixstatic.com/media/b77fe464cfc445da9003a5383a3e1acf.jpg" alt="" onmouseover="change(this);" onmouseout="changeAgain(this)"></td>
+    </tr>
+  </table>
+</body>
+</html>
