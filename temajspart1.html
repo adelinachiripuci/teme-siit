@@ -106,21 +106,20 @@
     */
 
     function sumPrimes(num) {
-      var range = [];
-
-      for(var i = 2; i <= num; i++) {
+      var list = [];
+      var i = 2;
+      while(list.length < num) {
         if (isPrime(i)) {
-          range.push(i);
+          list.push(i);
         }
+        i++;
       }
-
-      return range.reduce(function(a,b) {
+      return list.reduce(function(a,b) {
         return a+b;
       });
     };
 
     console.log(sumPrimes(3));
-    console.log(sumPrimes(5));
 
     /**
     8.O functie care primeste un parametru de tip string
@@ -157,21 +156,23 @@
     */
 
     function inArray(arr, x) {
-      if (x in arr) {
+      if (arr.indexOf(x) !== -1) {
         return true;
       } else {
         return false;
       }
     };
-    console.log(inArray([1,2,3,4,5,6],5));
-    console.log(inArray([1,2,3,4,5,6],7));
+    console.log(inArray([1,2,3,4,5,6],6));
+    console.log(inArray([1,2,3,4,5,6],45));
 
     /**
     11.O functie care intoarce maximul dintr-un array primit ca parametru
     */
 
+    console.log("11.O functie care intoarce maximul dintr-un array primit ca parametru")
+
     function maxNumber(arr) {
-      var max = [0];
+      var max = arr[0];
       for (var i = 0; i < arr.length; i++) {
         if(arr[i] > max) {
           max = arr[i];
@@ -188,8 +189,8 @@
     */
 
     function sumMinMax(arr) {
-      var max = [0];
-      var min = [0];
+      var max = arr[0];
+      var min = arr[0];
 
       for(var i = 0; i < arr.length; i++) {
         if(arr[i] > max) {
