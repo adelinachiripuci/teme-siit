@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="weatherapp.css"/>
+  <script src="weatherapp.js"></script>
+  <title>Weather</title>
+</head>
+<body>
+  <div id="insertCity">
+    <input type="text" name="city" id="cityinput" />
+    <input type="button" name="weatherNow" value="Afiseaza vremea" class="button" onclick="getWeatherElems();"/>
+    <input type="button" name="weatherForecast" value="Afiseaza prognoza" class="button" onclick="getWeatherForecast();"/>
+  </div>
+  <div id="weatherNowContainer">
+    <div class="header">
+      Vremea acum
+    </div>
+    <hr>
+    <div id="weatherNow">
+      <div id="weatherElemsContainer">
+        <div id="icon">
+        </div>
+        <div class="weatherElems">
+        Descriere : <span></span>
+        </div>
+        <div class="weatherElems">
+        Umiditate : <span></span>
+        </div>
+        <div class="weatherElems">
+        Presiune : <span></span>
+        </div>
+        <div class="weatherElems">
+        Temperatura curenta : <span></span>
+        </div>
+        <div class="weatherElems">
+        Minima zilei : <span></span>
+        </div>
+        <div class="weatherElems">
+        Maxima zilei : <span></span>
+        </div>
+      </div>
+      <div id="map">
+      </div>
+    </div>
+
+  </div>
+  <div id="weatherForecastContainer">
+    <div class="header">
+      Vremea in urmatoarele zile
+    </div>
+    <hr>
+    <table>
+      <thead>
+        <tr></tr>
+      </thead>
+      <tbody>
+        <tr id="zero">
+        </tr>
+        <tr id="three">
+        </tr>
+        <tr id="six">
+        </tr>
+        <tr id="nine">
+        </tr>
+        <tr id="twelve">
+        </tr>
+        <tr id="fifteen">
+        </tr>
+        <tr id="eighteen">
+        </tr>
+        <tr id="twenty_one">
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
