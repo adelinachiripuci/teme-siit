@@ -1,5 +1,5 @@
 var elems = {};
-var status = "notDrawn";
+
 
 function getWeatherElems() {
   var city = document.querySelector("#cityinput").value;
@@ -57,7 +57,7 @@ function drawWeatherNow() {
   document.querySelector("#weatherNow").innerHTML = str;
   document.querySelector("#weatherElemsContainer").style.height = "200px";
   document.querySelector("#weatherElemsContainer").style.width = "40%";
-  status = "notDrawn";
+
 };
 
 function getWeatherForecast() {
@@ -66,11 +66,7 @@ function getWeatherForecast() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       elemsForecast= JSON.parse(this.responseText);
-      if(status === "notDrawn") {
-        drawWeatherForecast();
-      } else {
-        event.preventDefault();
-      }
+      drawWeatherForecast();
     }
   };
   xhttp.open("GET", `https://api.openweathermap.org/data/2.5/forecast?appid=69518b1f8f16c35f8705550dc4161056&units=metric&q=${city}`, true);
@@ -80,6 +76,10 @@ function getWeatherForecast() {
 function drawWeatherForecast() {
   var emptytd = `<td></td>`
   var firstDay = `<td>${elemsForecast.list[0].dt_txt.slice(0,10)}</td>`;
+  var tr = document.querySelectorAll("tr");
+  for(var j =0; j<tr.length; j++) {
+    tr[j].innerHTML = "";
+  }
 
   if(elemsForecast.list[0].dt_txt.slice(11) == "03:00:00") {
     document.querySelector("thead tr").innerHTML += firstDay;
@@ -166,6 +166,5 @@ function drawWeatherForecast() {
       document.querySelector("#twenty_one").innerHTML += hour;
     }
   }
-  status = "drawn";
   document.querySelector("table").classList.remove("hidden");
 };
