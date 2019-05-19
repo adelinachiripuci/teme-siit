@@ -2,51 +2,23 @@
 <html>
 <head>
   <link rel="stylesheet" href="weatherapp.css"/>
+  <link rel="stylesheet" type="text/css" href="grid.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <script src="weatherapp.js"></script>
   <title>Weather</title>
 </head>
 <body>
   <div id="insertCity">
-    <input type="text" name="city" id="cityinput" />
-    <input type="button" name="weatherNow" value="Afiseaza vremea" class="button" onclick="getWeatherElems();"/>
-    <input type="button" name="weatherForecast" value="Afiseaza prognoza" class="button" onclick="getWeatherForecast();"/>
+    <input type="text" name="city" id="cityinput" placeholder="Enter a city" />
+    <input type="button" name="weatherNow" value="Show weather" class="button" onclick="getWeatherElems();"/>
+    <input type="button" name="weatherForecast" value="Show forecast" class="button" onclick="getWeatherForecast();"/>
   </div>
-  <div id="weatherNowContainer">
-    <div class="header">
-      Vremea acum
-    </div>
-    <hr>
-    <div id="weatherNow">
-      <div id="weatherElemsContainer">
-        <div id="icon">
-        </div>
-        <div class="weatherElems">
-        Descriere : <span></span>
-        </div>
-        <div class="weatherElems">
-        Umiditate : <span></span>
-        </div>
-        <div class="weatherElems">
-        Presiune : <span></span>
-        </div>
-        <div class="weatherElems">
-        Temperatura curenta : <span></span>
-        </div>
-        <div class="weatherElems">
-        Minima zilei : <span></span>
-        </div>
-        <div class="weatherElems">
-        Maxima zilei : <span></span>
-        </div>
-      </div>
-      <div id="map">
-      </div>
-    </div>
-
+  <div id="weatherNowContainer" class="hidden">
   </div>
-  <div id="weatherForecastContainer">
+  <div id="weatherForecastContainer" class="hidden">
     <div class="header">
-      Vremea in urmatoarele zile
+    Weather next days
     </div>
     <hr>
     <table>
@@ -54,7 +26,7 @@
         <tr></tr>
       </thead>
       <tbody>
-        <tr id="zero">
+        <tr id="zero" >
         </tr>
         <tr id="three">
         </tr>
