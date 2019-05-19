@@ -1,20 +1,31 @@
 body {
-  background-color: #E3F2FD;
+  background: url("clouds.jpg") repeat ;
 }
 
 .hidden{
   display: none;
 }
 
+table {
+  margin:0 auto;
+}
+
 #insertCity, #weatherNowContainer, #weatherForecastContainer {
-  background-color: #fff;
-  width:90%;
+  background-color: rgba(255,255,255, 0.7);
+  width:80%;
   margin: 10px auto;
   padding: 20px;
+  border-radius: 10px;
 }
 
 #weatherNow{
   display: flex;
+  flex-wrap: wrap;
+}
+
+#insertCity > input:hover {
+  cursor: pointer;
+  background-color: #0e1e93;
 }
 
 .header {
@@ -40,11 +51,6 @@ body {
   font-size: 14px;
 }
 
-#icon {
-  width: 20px;
-  height: 20px;
-}
-
 #icon > img {
   width:70px;
   height: 70px;
@@ -62,5 +68,28 @@ iframe {
 }
 
 thead {
-  background-color: #BBDEFB;
+  background-color: #1E88E5;
+}
+
+thead tr td {
+  padding:10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@media only screen
+  and (max-device-width: 320px)
+ {
+   #map > * {
+     width:250px;
+     height: 300px;
+   }
+   #weatherElemsContainer > *{
+   margin: 0 auto;
+  }
+}
+
+tr:nth-child(even) {
+  background-color: #B8DAF0;
 }
