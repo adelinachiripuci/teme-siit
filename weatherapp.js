@@ -19,45 +19,50 @@ function drawWeatherNow() {
   var str = "";
 
   str +=`
-   <div id="weatherElemsContainer">
-      <div id="icon">
-        <img src="https://openweathermap.org/img/w/${elems.weather["0"].icon}.png"
-      </div>
-      <div class="weatherElems">
-      Descriere : <span>${elems.weather["0"].description}</span>
-      </div>
-      <div class="weatherElems">
-      Umiditate : <span>${elems.main.humidity}</span>
-      </div>
-      <div class="weatherElems">
-      Presiune : <span>${elems.main.pressure}</span>
-      </div>
-      <div class="weatherElems">
-      Temperatura curenta : <span>${elems.main.temp}</span>
-      </div>
-      <div class="weatherElems">
-      Minima zilei : <span>${elems.main.temp_min}</span>
-      </div>
-      <div class="weatherElems">Maxima zilei: <span>${elems.main.temp_max}</span></div>
-    </div>
-    <div id="map">
-    </div>
+  <div class="header">
+  Weather now
   </div>
-  <div id="map">
+  <hr>
+  <div id="weatherNow">
+  <div id="weatherElemsContainer" class="col-xs-11 col-md-8 col-lg-4">
+      <div id="icon">
+        <img src="https://openweathermap.org/img/w/${elems.weather["0"].icon}.png" />
+      </div>
+      <div class="weatherElems">
+      Description : <span>${elems.weather["0"].description}</span>
+      </div>
+      <div class="weatherElems">
+      Humidity : <span>${elems.main.humidity}</span>
+      </div>
+      <div class="weatherElems">
+      Pressure : <span>${elems.main.pressure}</span>
+      </div>
+      <div class="weatherElems">
+        Current temperature : <span>${elems.main.temp}</span>
+      </div>
+      <div class="weatherElems">
+      Min temp : <span>${elems.main.temp_min}</span>
+      </div>
+      <div class="weatherElems">
+      Max temp: <span>${elems.main.temp_max}</span>
+      </div>
+  </div>
+  <div id="map" class="col-xs-11 col-md-8 col-lg-8">
     <iframe
-      width="600"
-      height="450"
+      // width="600"
+      // height="450"
       frameborder="0" style="border:0"
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDg59vuN5gSrHSV2n-p1-hJQCcHTtufVUY
       &q=${city}" allowfullscreen>
     </iframe>
   </div>
-  `
-  document.querySelector("table").classList.add("hidden");
-  document.querySelector("#weatherNow").innerHTML = str;
-  document.querySelector("#weatherElemsContainer").style.height = "200px";
-  document.querySelector("#weatherElemsContainer").style.width = "40%";
+  </div>
 
+`
+
+  document.querySelector("#weatherNowContainer").classList.remove("hidden");
+  document.querySelector("#weatherForecastContainer").classList.add("hidden");
+  document.querySelector("#weatherNowContainer").innerHTML = str;
 };
 
 function getWeatherForecast() {
@@ -134,13 +139,13 @@ function drawWeatherForecast() {
           <img src="https://openweathermap.org/img/w/${elemsForecast.list[i].weather["0"].icon}.png"
         </div>
         <div>
-        Ora: ${elemsForecast.list[i].dt_txt.slice(11)}
+        Hour: ${elemsForecast.list[i].dt_txt.slice(11)}
         </div>
         <div>
-         Temperatura: ${elemsForecast.list[i].main.temp}
+         Temperature: ${elemsForecast.list[i].main.temp}
         </div>
         <div>
-          Descriere: ${elemsForecast.list[i].weather["0"].description}
+          Description: ${elemsForecast.list[i].weather["0"].description}
         </div>
       </div>
     </td>
@@ -166,5 +171,7 @@ function drawWeatherForecast() {
       document.querySelector("#twenty_one").innerHTML += hour;
     }
   }
-  document.querySelector("table").classList.remove("hidden");
+  document.querySelector("#weatherForecastContainer").classList.remove("hidden");
+  document.querySelector("#weatherNowContainer").classList.add("hidden");
+
 };
